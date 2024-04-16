@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<script src="{{ url_for('static', filename = 'index.js') }}"></script>
+<script src="{{ url_for('static', filename = 'directory.js') }}"></script>
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <h1>Pose Directory</h1>
+            <div class="display-4 fs-2">Pose Directory</div>
             {% for sequence in sequences %}
                 <h2>{{sequence}} Sequence</h2>
                 <ul>
@@ -24,10 +24,22 @@
                 </ul>
         </div>
         <div class="col-6">
-            <h2>Sort By</h2>
-            <a href="/directory?sort_by=difficulty">Difficulty</a>
-            <br>
-            <a href="/directory?sort_by=name">Name</a>
+            <div class="display-4 fs-3">Sort By</div>
+            <ul>
+                <li><a href="/directory?sort_by=difficulty">Difficulty</a></li>
+                <li><a href="/directory?sort_by=name">Name</a></li>
+                <label for="bodyPartSelect">Body Part:</label>
+                <select id="bodyPartSelect">
+                    <option value="chest">Chest</option>
+                    <option value="shoulder">Shoulders</option>
+                    <option value="arms">Arms</option>
+                    <option value="core">Core</option>
+                    <option value="leg">Legs</option>
+                    <option value="hip">Hips</option>
+                    <option value="back">Back</option>
+                </select>
+                <button id="bodyPartSearchButton">Search</button>
+            </ul>
         </div>
     </div>
 </div>
