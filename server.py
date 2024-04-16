@@ -154,10 +154,10 @@ def directory():
 
 @app.route('/learn/<id>')
 def learn(id=None):
-
+    global num_poses
     pose = data[id]
 
-    return render_template('learn.html', pose=pose)
+    return render_template('learn.html', pose=pose, num_poses = num_poses)
 
 
 @app.route('/quiz')
