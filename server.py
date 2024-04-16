@@ -57,6 +57,12 @@ def directory():
     
     return render_template('directory.html', poses=sorted_poses)
 
+@app.route('/learn/<id>')
+def learn(id=None):
+
+    pose = data[id]
+
+    return render_template('learn.html', pose=pose)
 
 if __name__ == '__main__':
     app.run(debug = True)
