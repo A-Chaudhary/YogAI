@@ -16,5 +16,17 @@
 
     <h2>Improvement Tips</h2>
     <p>{{pose.tips}}</p>
+
+    {% if pose.id != "0" %}
+    <a href="/learn/{{pose.id | int - 1}}"">
+        <button>Prev</button>
+      </a>
+    {% endif %}
+    {% if pose.id | int != num_poses %}
+    <a href="/learn/{{pose.id | int + 1}}"">
+        <button>Next</button>
+      </a>
+    {% endif %}
+
 </div>
 {% endblock %}
