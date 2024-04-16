@@ -118,7 +118,7 @@ data = {
     },
 }
 
-
+quiz_score = 69
 num_poses = 11
 
 @app.route('/')
