@@ -19,11 +19,11 @@ data = {
 }
 
 @app.route('/learn/<id>')
-def view(id = None):
+def learn(id = None):
     global data
 
     pose = data[id]
-    return render_template('view.html', pose=pose)
+    return render_template('learn.html', pose=pose)
 
 if __name__ == '__main__':
     app.run(debug = True)
