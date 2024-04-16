@@ -2,12 +2,17 @@
 
 {% block content %}
 <script src="{{ url_for('static', filename = 'index.js') }}"></script>
-<script>
-    
-</script>
-<div class="container">
-    <div class='fs-1'>
-        [HOME PAGE]
+<div class="container d-flex  align-items-center" style="height: 80vh">
+    <div class="row">
+        <div class="col-6">
+            <h1 class="display-4">Welcome to YogAI</h1>
+            <p class="lead">Your ultimate destination for yoga teachings and practices.</p>
+            <p>Whether you're a beginner or an experienced yogi, YogAI offers a wide range of resources to enhance your yoga journey.</p>
+            <a href="/learn" class="btn btn-primary btn-lg">Start Learning</a>
+        </div>
+        <!-- <div class="col-md-6">
+            <img src="{{ url_for('static', filename = 'yoga_home.jpg') }}" alt="Yoga Image" class="img-fluid rounded">
+        </div> -->
     </div>
 </div>
 {% endblock %}
