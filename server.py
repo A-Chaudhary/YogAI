@@ -3,6 +3,10 @@ from flask import render_template
 from flask import Response, request, jsonify
 app = Flask(__name__)
 
+@app.route('/')
+def hello_world():
+    return render_template('index.html')
+
 data = {
     "0" : {
         "id": "0",
@@ -13,9 +17,6 @@ data = {
         "video": "Cil7tOPh4qM"
     }
 }
-@app.route('/')
-def hello_world():
-    return render_template('home.html')   
 
 @app.route('/learn/<id>')
 def view(id = None):
