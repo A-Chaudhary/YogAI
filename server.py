@@ -44,6 +44,7 @@ def hello_world():
 @app.route('/directory')
 def directory():
     sort_by = request.args.get('sort_by')
+    body_part = request.args.get('body_part')
     global data
 
     poses = [data[str(id)] for id in range(num_poses)]
@@ -52,6 +53,11 @@ def directory():
         sorted_poses = sorted(poses, key=lambda x: x["name"])
     elif sort_by == "difficulty":
         sorted_poses = sorted(poses, key=lambda x: x["difficulty"])
+        print(sorted_poses)
+    elif body_part is not None:
+        for pose in poses:
+            print(pose['benefits'])
+        sorted_poses = [pose for pose in poses if body_part.lower() in pose['benefits'].lower()]
     else:
         sorted_poses = poses
     
@@ -63,6 +69,11 @@ def learn(id=None):
     pose = data[id]
 
     return render_template('learn.html', pose=pose)
+
+
+@app.route('/quiz')
+def quiz():
+    return render_template('quiz.html')
 
 if __name__ == '__main__':
     app.run(debug = True)
