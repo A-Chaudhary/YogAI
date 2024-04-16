@@ -3,12 +3,22 @@
 {% block content %}
 <script src="{{ url_for('static', filename = 'index.js') }}"></script>
 <div class="container">
-    <h1>Pose Directory</h1>
-    <ul>
-        {% for pose in poses %}
-            <li><a href="/learn/{{pose.id}}">{{pose.name}}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="row">
+        <div class="col-6">
+            <h1>Pose Directory</h1>
+                <ul>
+                    {% for pose in poses %}
+                        <li><a href="/learn/{{pose.id}}">{{pose.name}}</a></li>
+                    {% endfor %}
+                </ul>
+        </div>
+        <div class="col-6">
+            <h2>Sort By</h2>
+            <a href="/directory?sort_by=difficulty">Difficulty</a>
+            <br>
+            <a href="/directory?sort_by=name">Name</a>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
