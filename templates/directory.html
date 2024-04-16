@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script src="{{ url_for('static', filename = 'index.js') }}"></script>
+<div class="container">
+    <h1>Pose Directory</h1>
+    <ul>
+        {% for pose in poses %}
+            <li><a href="/learn/{{pose.id}}">{{pose.name}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
