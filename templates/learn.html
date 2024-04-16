@@ -3,18 +3,18 @@
 {% block content %}
 <script src="{{ url_for('static', filename = 'index.js') }}"></script>
 <div class="container">
-    <h1>{{pose.name}}</h1>
+    <div class="display-2">{{pose.name}}</div>
 
-    <h2>How To</h2>
+    <div class="display-4">How To</div>
     <iframe width="1250" height="703" src="https://www.youtube.com/embed/{{pose.video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-    <h2>Benefits of {{pose.name}}</h2>
+    <div class="display-6">Benefits of {{pose.name}}</div>
     <p>{{pose.benefits}}</p>
 
-    <h2>Common Mistakes</h2>
+    <div class="display-6">Common Mistakes</div>
     <p>{{pose.mistakes}}</p>
 
-    <h2>Improvement Tips</h2>
+    <div class="display-6">Improvement Tips</div>
     <p>{{pose.tips}}</p>
 </div>
 {% endblock %}

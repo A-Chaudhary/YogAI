@@ -5,9 +5,9 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <div class="display-4 fs-2">Pose Directory</div>
+            <div class="display-4 fs-1">Pose Directory</div>
             {% for sequence in sequences %}
-                <h2>{{sequence}} Sequence</h2>
+                <div class="display-4 fs-3">{{sequence}} Sequence</div>
                 <ul>
                 {% for pose in poses %}
                     {% if pose.sequence == sequence %}
@@ -16,7 +16,7 @@
                 {% endfor %}
                 </ul>
             {% endfor %}
-            <h2>All Poses</h2>
+            <div class="display-4 fs-3">All Poses</div>
                 <ul>
                     {% for pose in poses %}
                         <li><a href="/learn/{{pose.id}}">{{pose.name}}</a></li>
