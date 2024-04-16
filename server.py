@@ -166,6 +166,8 @@ def quiz():
 
 @app.route('/results')
 def results():
+    global quiz_score
+
     return render_template('results.html', results=quiz_score)
 
 if __name__ == '__main__':
