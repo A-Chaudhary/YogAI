@@ -164,5 +164,9 @@ def learn(id=None):
 def quiz():
     return render_template('quiz.html')
 
+@app.route('/results')
+def results():
+    return render_template('results.html', results=quiz_score)
+
 if __name__ == '__main__':
     app.run(debug = True)
