@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script src="{{ url_for('static', filename = 'index.js') }}"></script>
+<div class="container">
+    <div class='fs-1'>
+        [Teaching Page]
+    </div>
+    <div class="video-container">
+        <!-- Placeholder for video -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=bGEuxtK2fwOmFt7w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div>
+        <p>This is some text to provide context or instructions for the lesson.</p>
+    </div>
+    <div class="progress mt-3">
+        <div class="progress-bar bg-success" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+    </div>
+</div>
+{% endblock %}
