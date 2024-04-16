@@ -141,6 +141,8 @@ def directory():
     elif sort_by == "difficulty":
         sorted_poses = sorted(poses, key=lambda x: x["difficulty"])
         print(sorted_poses)
+    elif body_part == 'all':
+        sorted_poses = poses
     elif body_part is not None:
         for pose in poses:
             print(pose['benefits'])
