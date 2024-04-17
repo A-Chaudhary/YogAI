@@ -22,7 +22,7 @@
         <button>Prev</button>
       </a>
     {% endif %}
-    {% if pose.id | int != num_poses %}
+    {% if pose.id | int != num_poses - 1 %}
     <a href="/learn/{{pose.id | int + 1}}"">
         <button>Next</button>
       </a>

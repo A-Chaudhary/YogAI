@@ -40,6 +40,8 @@
         function updateTimer() {
             timerElement.textContent = countdown;
             if (countdown === 0) {
+                var score = document.getElementById('score');
+                score.innerHTML = Math.random() * 100
                 document.getElementById('scoreInput').value = document.getElementById('score').textContent;
                 document.getElementById('nextPoseForm').submit();
             } else {
