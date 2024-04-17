@@ -1,7 +1,9 @@
 from flask import Flask
 from flask import render_template
-from flask import Response, request, jsonify
+from flask import Response, request, jsonify, session, redirect, url_for
+
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 
 sequences = ["Warrior", "Core Strengthener"]
 
@@ -118,6 +120,65 @@ data = {
     },
 }
 
+yoga_sequences = {
+    'Sequence 1': ['Mountain', 'Downward Dog', 'Warrior I', 'Tree', 'Child'],
+    'Sequence 2': ['Cobra', 'Plank', 'Seated Forward Bend', 'Triangle', 'Camel']
+}
+
+# Detailed keypoints for each pose
+pose_keypoints = {
+    'Mountain': {
+        'leftHip': {'x': 0.5, 'y': 0.6}, 'rightHip': {'x': 0.5, 'y': 0.6},
+        'leftKnee': {'x': 0.5, 'y': 0.75}, 'rightKnee': {'x': 0.5, 'y': 0.75},
+        'leftAnkle': {'x': 0.5, 'y': 0.9}, 'rightAnkle': {'x': 0.5, 'y': 0.9}
+    },
+    'Downward Dog': {
+        'leftHip': {'x': 0.4, 'y': 0.4}, 'rightHip': {'x': 0.6, 'y': 0.4},
+        'leftKnee': {'x': 0.4, 'y': 0.65}, 'rightKnee': {'x': 0.6, 'y': 0.65},
+        'leftAnkle': {'x': 0.35, 'y': 0.9}, 'rightAnkle': {'x': 0.65, 'y': 0.9}
+    },
+    'Warrior I': {
+        'leftHip': {'x': 0.4, 'y': 0.55}, 'rightHip': {'x': 0.55, 'y': 0.55},
+        'leftKnee': {'x': 0.3, 'y': 0.8}, 'rightKnee': {'x': 0.55, 'y': 0.8},
+        'leftAnkle': {'x': 0.25, 'y': 0.95}, 'rightAnkle': {'x': 0.55, 'y': 0.95}
+    },
+    'Tree': {
+        'leftHip': {'x': 0.5, 'y': 0.55}, 'rightHip': {'x': 0.55, 'y': 0.55},
+        'leftKnee': {'x': 0.6, 'y': 0.6}, 'rightKnee': {'x': 0.55, 'y': 0.75},
+        'leftAnkle': {'x': 0.5, 'y': 0.7}, 'rightAnkle': {'x': 0.55, 'y': 0.95}
+    },
+    'Child': {
+        'leftHip': {'x': 0.5, 'y': 0.7}, 'rightHip': {'x': 0.5, 'y': 0.7},
+        'leftKnee': {'x': 0.5, 'y': 0.85}, 'rightKnee': {'x': 0.5, 'y': 0.85},
+        'leftAnkle': {'x': 0.5, 'y': 0.95}, 'rightAnkle': {'x': 0.5, 'y': 0.95}
+    },
+    'Cobra': {
+        'leftHip': {'x': 0.5, 'y': 0.7}, 'rightHip': {'x': 0.5, 'y': 0.7},
+        'leftKnee': {'x': 0.5, 'y': 0.85}, 'rightKnee': {'x': 0.5, 'y': 0.85},
+        'leftAnkle': {'x': 0.45, 'y': 0.95}, 'rightAnkle': {'x': 0.55, 'y': 0.95}
+    },
+    'Plank': {
+        'leftHip': {'x': 0.5, 'y': 0.5}, 'rightHip': {'x': 0.5, 'y': 0.5},
+        'leftKnee': {'x': 0.5, 'y': 0.75}, 'rightKnee': {'x': 0.5, 'y': 0.75},
+        'leftAnkle': {'x': 0.5, 'y': 0.95}, 'rightAnkle': {'x': 0.5, 'y': 0.95}
+    },
+    'Seated Forward Bend': {
+        'leftHip': {'x': 0.5, 'y': 0.5}, 'rightHip': {'x': 0.5, 'y': 0.5},
+        'leftKnee': {'x': 0.5, 'y': 0.6}, 'rightKnee': {'x': 0.5, 'y': 0.6},
+        'leftAnkle': {'x': 0.5, 'y': 0.75}, 'rightAnkle': {'x': 0.5, 'y': 0.75}
+    },
+    'Triangle': {
+        'leftHip': {'x': 0.4, 'y': 0.55}, 'rightHip': {'x': 0.6, 'y': 0.55},
+        'leftKnee': {'x': 0.4, 'y': 0.8}, 'rightKnee': {'x': 0.6, 'y': 0.8},
+        'leftAnkle': {'x': 0.4, 'y': 0.95}, 'rightAnkle': {'x': 0.6, 'y': 0.95}
+    },
+    'Camel': {
+        'leftHip': {'x': 0.5, 'y': 0.55}, 'rightHip': {'x': 0.5, 'y': 0.55},
+        'leftKnee': {'x': 0.5, 'y': 0.8}, 'rightKnee': {'x': 0.5, 'y': 0.8},
+        'leftAnkle': {'x': 0.45, 'y': 0.95}, 'rightAnkle': {'x': 0.55, 'y': 0.95}
+    }
+}
+
 quiz_score = 69
 num_poses = 11
 
@@ -149,7 +210,7 @@ def directory():
         sorted_poses = [pose for pose in poses if body_part.lower() in pose['benefits'].lower()]
     else:
         sorted_poses = poses
-    
+
     return render_template('directory.html', poses=sorted_poses, sequences=sequences)
 
 @app.route('/learn/<id>')
@@ -161,8 +222,34 @@ def learn(id=None):
 
 
 @app.route('/quiz')
-def quiz():
-    return render_template('quiz.html')
+def index():
+    return render_template('quiz.html', sequences=yoga_sequences)
+
+@app.route('/start', methods=['POST'])
+def start():
+    sequence_name = request.form.get('sequence')
+    session['sequence'] = yoga_sequences[sequence_name]
+    session['current_pose_index'] = 0
+    return redirect(url_for('pose'))
+
+@app.route('/pose')
+def pose():
+    if 'sequence' not in session or session['current_pose_index'] >= len(session['sequence']):
+        return redirect(url_for('index'))
+    pose_name = session['sequence'][session['current_pose_index']]
+    keypoints = pose_keypoints[pose_name]
+    return render_template('pose.html', pose_name=pose_name, keypoints=keypoints)
+
+@app.route('/next_pose', methods=['POST'])
+def next_pose():
+    score = float(request.form.get('score'))
+    if 'scores' not in session:
+        session['scores'] = []
+    session['scores'].append(score)
+    session['current_pose_index'] += 1
+    if session['current_pose_index'] >= len(session['sequence']):
+        return redirect(url_for('results'))
+    return redirect(url_for('pose'))
 
 @app.route('/results')
 def results():
