@@ -3,30 +3,39 @@
 {% block content %}
 <script src="{{ url_for('static', filename = 'index.js') }}"></script>
 <div class="container">
-    <div class="display-2">{{pose.name}}</div>
+    <div class="display-2 pose-title">{{pose.name}}</div>
 
-    <div class="display-4">How To</div>
-    <iframe width="1250" height="703" src="https://www.youtube.com/embed/{{pose.video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-    <div class="display-6">Benefits of {{pose.name}}</div>
+    <div class="row">
+    <div class="col-8">
+    <iframe class="yoga-video" src="https://www.youtube.com/embed/{{pose.video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="col-4">
+    <div class="display-6 learn-subheading">Benefits</div>
     <p>{{pose.benefits}}</p>
 
-    <div class="display-6">Common Mistakes</div>
+    <div class="display-6 learn-subheading">Common Mistakes</div>
     <p>{{pose.mistakes}}</p>
 
-    <div class="display-6">Improvement Tips</div>
+    <div class="display-6 learn-subheading">Improvement Tips</div>
     <p>{{pose.tips}}</p>
 
     {% if pose.id != "0" %}
-    <a href="/learn/{{pose.id | int - 1}}"">
-        <button>Prev</button>
+    <a href="/learn/{{pose.id | int - 1}}" class="btn btn-primary btn-lg bg-accent"">
+        Prev
       </a>
     {% endif %}
     {% if pose.id | int != num_poses - 1 %}
-    <a href="/learn/{{pose.id | int + 1}}"">
-        <button>Next</button>
+    <a href="/learn/{{pose.id | int + 1}}" class="btn btn-primary btn-lg bg-accent""> 
+        Next
       </a>
     {% endif %}
+    {% if pose.id | int == num_poses - 1 %}
+    <a href="/quiz" class="btn btn-primary btn-lg bg-accent""> 
+        Quiz
+      </a>
+    {% endif %}
+    </div>
+    </div>
 
 </div>
 {% endblock %}
