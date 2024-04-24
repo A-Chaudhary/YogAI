@@ -52,6 +52,15 @@
 }
 
 .sequence-form{
-    margin-top: -1px;
-    min-height: 45px;
+    display: flex;
+    flex-direction: row;
+}
+
+.sequence-form .btn-primary {
+    height: 50px;
+}
+
+.form-select {
+    height: 50px;
+    margin-right: 10px;
 }
