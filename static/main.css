@@ -21,8 +21,12 @@
     margin-bottom: 15px;
 }
 
-.yoga-video{
+.yoga-video {
     margin-bottom: 10px;
     width: 90%;
     min-height: 90%;
+}
+
+.learn-subheading {
+    font-weight: bold;
 }
