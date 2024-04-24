@@ -38,7 +38,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh; /* Make container take up full viewport height */
+    height: 90; /* Make container take up full viewport height */
 }
 
 .quiz-home-title{
