@@ -259,9 +259,14 @@ def results():
     if 'scores' not in session:
         quiz_score = 0
     else:
-        quiz_score = sum(session['scores']) / len(session['scores'])
+        quiz_score = round(sum(session['scores']) / len(session['scores']), 2)
 
-    return render_template('results.html', score=quiz_score)
+    from random import random
+
+    scores = session['scores']
+
+
+    return render_template('results.html', overall_score=quiz_score, scores=scores)
 
 if __name__ == '__main__':
     app.run(debug = True)

@@ -2,15 +2,17 @@
 
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script> 
+    var scores = {{scores}};
+    var overall_score = {{overall_score}};
+</script>
 <script src="{{ url_for('static', filename = 'results.js') }}"></script>
-<div class="container">
-    <div class='fs-1'>
-        Quiz Results
-    </div>
+<div class="container results-home">
+    <div class='display-1'>Quiz Results</div>
     <div id="score-container">
-        <h2>
-            Your Average Score: {{score}}
-        </h2>
+        <div class="display-4 fs-3">
+            Your Average Score: <span class="fw-bold fs-1">{{overall_score}}</span>
+        </div>
     </div>
 </div>
 {% endblock %}
