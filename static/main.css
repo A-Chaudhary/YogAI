@@ -63,4 +63,13 @@
 .form-select {
     height: 50px;
     margin-right: 10px;
+}   
+
+.difficulty-star{
+    height: 15px;
+}
+
+.difficulty-list{
+    list-style-type: none;
+    margin-top: 20px;
 }

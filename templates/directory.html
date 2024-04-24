@@ -11,7 +11,11 @@
                 <ul>
                 {% for pose in poses %}
                     {% if pose.sequence == sequence %}
-                        <li><a href="/learn/{{ pose.id }}">{{ pose.name }}</a></li>
+                        <li><a href="/learn/{{ pose.id }}">{{ pose.name }}</a>
+                        {% for i in range(pose.difficulty | int) %}
+                            <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                        {% endfor %}
+                        </li>
                     {% endif %}
                 {% endfor %}
                 </ul>
@@ -19,7 +23,11 @@
             <div class="display-4 fs-3">All Poses</div>
                 <ul>
                     {% for pose in poses %}
-                        <li><a href="/learn/{{pose.id}}">{{pose.name}}</a></li>
+                        <li><a href="/learn/{{pose.id}}">{{pose.name}}</a>
+                            {% for i in range(pose.difficulty | int) %}
+                            <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                            {% endfor %}
+                        </li>
                     {% endfor %}
                 </ul>
         </div>
@@ -30,6 +38,8 @@
                 <li><a href="/directory?sort_by=difficulty">Difficulty</a></li>
                 <li><a href="/directory?sort_by=name">Name</a></li>
                 <label for="bodyPartSelect">Body Part:</label>
+            </ul>
+            <div class="display-4 fs-3">Filter</div>
                 <select id="bodyPartSelect">
                     <option value="all">All</option>
                     <option value="chest">Chest</option>
@@ -41,7 +51,27 @@
                     <option value="back">Back</option>
                 </select>
                 <button id="bodyPartSearchButton">Search</button>
+            <div class="display-4 fs-3 difficulty-list">Difficulty Levels</div>
+            <div>
+                <div>
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star"> = Beginner
+                </div>
+                <div>
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                    = Intermediate
+                </div>
+
+                <div>
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                    = Advanced
+                </div>
+
+                
             </ul>
+            
         </div>
     </div>
 </div>
