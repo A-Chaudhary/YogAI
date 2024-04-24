@@ -29,6 +29,11 @@
         Next
       </a>
     {% endif %}
+    {% if pose.id | int == num_poses - 1 %}
+    <a href="/quiz" class="btn btn-primary btn-lg bg-accent""> 
+        Quiz
+      </a>
+    {% endif %}
     </div>
     </div>
 
