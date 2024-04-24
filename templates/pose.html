@@ -11,7 +11,6 @@
         }
         #timer {
             font-size: 24px;
-            color: green;
             text-align: center;
         }
     </style>
@@ -20,7 +19,7 @@
     <h1 style="text-align:center;">{{ pose_name }}</h1>
     <video id="video" width="640" height="480" autoplay style="display:none;"></video>
     <canvas id="canvas" width="640" height="480"></canvas>
-    <div id="timer">10</div>
+    <div id="timer" class="fs-2 accent fw-bold">10</div>
     <p style="text-align:center;">Score: <span id="score">0</span></p>
     <form id="nextPoseForm" action="/next_pose" method="post" style="display:none;">
         <input type="hidden" name="score" id="scoreInput">

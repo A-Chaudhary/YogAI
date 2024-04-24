@@ -8,13 +8,16 @@ $(document).ready(() => {
     const container = $('#score-container');
 
     // Generate random data
-    const data = Array.from({ length: 5 }, () => Math.floor(Math.random() * 101));
+    const data = Array.from(scores);
+    console.log(data);
 
     // Calculate overall score
-    const overallScore = data.reduce((acc, curr) => acc + curr, 0) / data.length;
+    const overallScore = overall_score;
+    console.log(overallScore);
 
     // Define categorical labels
-    const labels = ["pose 1", "pose 2", "pose 3", "pose 4", "pose 5", "Overall Score"];
+    const labels = [...Array(data.length).keys()].map(i => `pose ${i + 1}`);
+    labels.push("Overall Score");
 
     // Declare the x (horizontal position) scale.
     const x = d3.scaleBand()
@@ -36,11 +39,12 @@ $(document).ready(() => {
     svg.selectAll(".bar")
         .data([...data, overallScore]) // Add overall score to data
         .enter().append("rect")
-        .attr("class", (d, i) => i === 5 ? "overall-bar" : "bar") // Highlight overall score bar
+        .attr("class", (d, i) => i === data.length ? "overall-bar" : "bar") // Highlight overall score bar
         .attr("x", (d, i) => x(labels[i]))
         .attr("y", d => y(d))
         .attr("width", x.bandwidth())
-        .attr("height", d => height - marginBottom - y(d));
+        .attr("height", d => height - marginBottom - y(d))
+        .style('fill', "rgb(20, 52, 67)");
 
     // Add the x-axis.
     svg.append("g")
