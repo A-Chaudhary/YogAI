@@ -30,3 +30,27 @@
 .learn-subheading {
     font-weight: bold;
 }
+
+.quiz-home{
+    text-align: center; /* Center-align text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Make container take up full viewport height */
+}
+
+.quiz-home-title{
+    margin-bottom: 10px;
+}
+
+.get-ready-text{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sequence-form{
+    margin-top: -1px;
+    min-height: 45px;
+}

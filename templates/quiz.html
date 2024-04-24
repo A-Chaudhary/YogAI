@@ -3,14 +3,18 @@
 {% block content %}
 <!-- <script src="{{ url_for('static', filename = 'index.js') }}"></script> -->
 <body>
-    <h1>Select a Yoga Sequence</h1>
-    <form action="/start" method="post">
-        <select name="sequence">
-            {% for sequence in sequences %}
-            <option value="{{ sequence }}">{{ sequence }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit">Start</button>
-    </form>
+    <div class="container quiz-home">
+                <div class="display-1 quiz-home-title">Pose Quiz</div>
+                <img src="{{url_for('static', filename='/img/quiz_pose.jpg')}}">
+                <div class="get-ready-text">Ready to test your skills? Select a sequence below and get ready to pose!</div>
+                <form action="/start" method="post" >
+                    <select name="sequence" class="sequence-form">
+                        {% for sequence in sequences %}
+                        <option value="{{ sequence }}">{{ sequence }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn-primary btn-lg bg-accent">Start</button>
+                </form>
+               
 </body>
 {% endblock %}
