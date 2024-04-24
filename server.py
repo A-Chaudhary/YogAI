@@ -179,7 +179,7 @@ pose_keypoints = {
     }
 }
 
-quiz_score = 69
+quiz_score = 0
 num_poses = 11
 
 @app.route('/')
@@ -254,6 +254,10 @@ def next_pose():
 @app.route('/results')
 def results():
     global quiz_score
+    if 'scores' not in session:
+        quiz_score = 0
+    else:
+        quiz_score = sum(session['scores']) / len(session['scores'])
 
     return render_template('results.html', score=quiz_score)
 
