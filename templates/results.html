@@ -1,15 +1,13 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<!-- <script src="{{ url_for('static', filename = 'index.js') }}"></script> -->
-<script>
-    
-</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="{{ url_for('static', filename = 'results.js') }}"></script>
 <div class="container">
     <div class='fs-1'>
         Quiz Results
     </div>
-    <div class="score">
+    <div id="score-container">
         <h2>
             Your Average Score: {{score}}
         </h2>
