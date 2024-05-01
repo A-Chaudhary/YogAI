@@ -103,7 +103,7 @@ function drawSkeleton(keypoints, ctx, minConfidence) {
     });
 }
 
-let countdown = 10;
+let countdown = 7;
 const timerElement = document.getElementById('timer');
 
 function updateTimer() {

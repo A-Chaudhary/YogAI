@@ -8,6 +8,7 @@ $(document).ready(() => {
     const container = $('#score-container');
 
     // Generate random data
+    console.log(scores);
     const data = Array.from(scores);
     console.log(data);
 
