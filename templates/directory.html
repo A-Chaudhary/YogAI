@@ -17,6 +17,7 @@
                         <div class="pose-card m-1">
                             <div class="">
                                 <a href="/learn/{{ pose.id }}">{{ pose.name }}</a>
+                                <img class="pose-icon" src="{{ pose.icon }}">
                             </div>
                             <div class="">
                                 <div class="col-12">
@@ -40,6 +41,7 @@
                         <div class="pose-card m-1">
                             <div class="">
                                 <a href="/learn/{{pose.id}}">{{pose.name}}</a>
+                                <img class="pose-icon" src="{{ pose.icon }}">
                             </div>
                             <div class="">
                                 <div class="col-12">
@@ -59,9 +61,10 @@
                 <li><a href="/directory?sort_by=default">Default</a></li>
                 <li><a href="/directory?sort_by=difficulty">Difficulty</a></li>
                 <li><a href="/directory?sort_by=name">Name</a></li>
-                <label for="bodyPartSelect">Body Part:</label>
+                
             </ul>
             <div class="display-4 fs-3">Filter</div>
+            <label for="bodyPartSelect">Body Part:</label>
                 <select id="bodyPartSelect">
                     <option value="all">All</option>
                     <option value="chest">Chest</option>
@@ -72,7 +75,7 @@
                     <option value="hip">Hips</option>
                     <option value="back">Back</option>
                 </select>
-                <button id="bodyPartSearchButton">Search</button>
+                <button id="bodyPartSearchButton" class="btn-primary btn-md bg-accent">Search</button>
             <div class="display-4 fs-3 difficulty-list">Difficulty Levels</div>
             <div>
                 <div>

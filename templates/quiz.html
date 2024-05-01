@@ -1,21 +1,103 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<!-- <script src="{{ url_for('static', filename = 'index.js') }}"></script> -->
-<body>
-    <div class="container quiz-home">
-                <div class="display-1 quiz-home-title">Pose Quiz</div>
-                <img src="{{url_for('static', filename='/img/quiz_pose.jpg')}}">
-                <div class="get-ready-text">Ready to test your skills? Please find an open space in front of your camera with your full body in view.</div>
-                <form action="/start" method="post" class="sequence-form">
-                    <select class="form-select form-select-lg mb-3" name="sequence">
-                      {% for sequence in sequences %}
-                      <option value="{{ sequence }}">{{ sequence }}</option>
-                      {% endfor %}
-                    </select>
-                    <button type="submit" class="btn-primary btn-lg bg-accent">Start</button>
-                </form>
+<script src="{{ url_for('static', filename = 'directory.js') }}"></script>
+<div class="container">
+    <div class="row">
+        <div class="display-4 fs-1 mb-3">Pose Directory</div>
+        <div class="col-8">
+            {% for sequence in sequences %}
+                <div class="row">
+                        <div class="display-4 fs-3">{{sequence}} Sequence</div>
+                </div>
+                <div class="row">
+                {% for pose in poses %}
+                    {% if pose.sequence == sequence %}
+                    <div class="col-4 text-center p-0 m-0">
+                        <div class="pose-card m-1">
+                            <div class="">
+                                <a href="/learn/{{ pose.id }}">{{ pose.name }}</a>
+                                <img class="pose-icon" src="{{ pose.icon }}">
+                            </div>
+                            <div class="">
+                                <div class="col-12">
+                                    {% for i in range(pose.difficulty | int) %}
+                                        <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            {% endfor %}
+            <div class="row">
+                <div class="display-4 fs-3">All Poses</div>
+            </div>
+                <div class="row">
+                    {% for pose in poses %}
+                    <div class="col-4 text-center p-0 m-0">
+                        <div class="pose-card m-1">
+                            <div class="">
+                                <a href="/learn/{{pose.id}}">{{pose.name}}</a>
+                                <img class="pose-icon" src="{{ pose.icon }}">
+                            </div>
+                            <div class="">
+                                <div class="col-12">
+                                    {% for i in range(pose.difficulty | int) %}
+                                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+        </div>
+        <div class="col-4">
+            <div class="display-4 fs-3">Sort By</div>
+            <ul>
+                <li><a href="/directory?sort_by=default">Default</a></li>
+                <li><a href="/directory?sort_by=difficulty">Difficulty</a></li>
+                <li><a href="/directory?sort_by=name">Name</a></li>
+            </ul>
+            <div class="display-4 fs-3">Filter</div>
+            <label for="bodyPartSelect">Body Part:</label>
+                <select id="bodyPartSelect">
+                    <option value="all">All</option>
+                    <option value="chest">Chest</option>
+                    <option value="shoulder">Shoulders</option>
+                    <option value="arms">Arms</option>
+                    <option value="core">Core</option>
+                    <option value="leg">Legs</option>
+                    <option value="hip">Hips</option>
+                    <option value="back">Back</option>
+                </select>
+                <button id="bodyPartSearchButton" class="btn-primary btn-md bg-accent" type="submit">Search</button>
+            <div class="display-4 fs-3 difficulty-list">Difficulty Levels</div>
+            <div>
+                <div>
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star"> = Beginner
+                </div>
+                <div>
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                    = Intermediate
+                </div>
 
-</body>
+                <div>
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                    <img src="{{ url_for('static', filename = '/img/difficulty_star.png') }}" class="difficulty-star">
+                    = Advanced
+                </div>
+
+                
+            </ul>
+            
+        </div>
+    </div>
+</div>
 
 {% endblock %}
