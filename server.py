@@ -5,6 +5,7 @@ import base64
 import numpy as np
 import cv2
 import pose_estimation
+import time
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -163,6 +164,8 @@ def pose():
 
 @app.route('/save_image_frame', methods=['POST'])
 def save_image_frame():
+    global scores
+
     image_data = request.json.get('imageData')
     img_bytes = base64.b64decode(image_data.split(",")[1])
     image_array = np.frombuffer(img_bytes, dtype=np.uint8) # Decode the base64 data
@@ -176,6 +179,8 @@ def save_image_frame():
             scores.append(float(pose_score) * 100)
     else:
         scores.append(0)
+
+    # print(scores)
 
     #with open("image.png", "wb") as image_file:
         #image_file.write(img_bytes)
@@ -191,9 +196,11 @@ def next_pose():
 @app.route('/results')
 def results():
     global quiz_score
+    global scores
+    # print('results', scores)
     quiz_score = round(sum(scores) / len(scores), 2)
 
-
+    time.sleep(1)
     return render_template('results.html', overall_score=quiz_score, scores=scores)
 
 if __name__ == '__main__':

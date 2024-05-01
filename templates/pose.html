@@ -28,28 +28,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
     <script src="{{ url_for('static', filename='quiz.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            init(); // Ensure this is called to start the camera and PoseNet
-        });
-
-        let countdown = 7;
-        const timerElement = document.getElementById('timer');
-
-        function updateTimer() {
-            timerElement.textContent = countdown;
-            if (countdown === 0) {
-                var score = document.getElementById('score');
-                score.innerHTML = Math.random() * 100
-                document.getElementById('scoreInput').value = document.getElementById('score').textContent;
-                document.getElementById('nextPoseForm').submit();
-            } else {
-                countdown--;
-                setTimeout(updateTimer, 1000);
-            }
-        }
-
-        setTimeout(updateTimer, 1000); // Start the timer when the page loads
-    </script>
 </body>
 {% endblock %}
