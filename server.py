@@ -10,13 +10,13 @@ import time
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
-sequences = ["Warrior", "Core Strengthener"]
+sequences = ["Warrior", "Balance Flow"]
 
 data = {
     "0" : {
         "id": "0",
         "name": "Downward Dog",
-        "sequence": "",
+        "sequence": "Balance Flow",
         "difficulty": "1",
         "benefits": "Activates shoulders, arms, and wrists for improved strength. Stretches hamstrings, calves, and foot arches, enhancing flexibility.",
         "mistakes": "Avoid overarching the back to prevent spine compression. Keep shoulders away from ears to reduce neck and shoulder tension.",
@@ -90,10 +90,44 @@ data = {
         "video": "warrior_3.mp4",
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-essentials/48/Paul-09-256.png"
     },
+
+    "7": {
+         "id": "7",
+        "name": "Tree",
+        "sequence": "Balance Flow",
+        "difficulty": "1",
+        "benefits": "Tree Pose helps improve your balance and stability by engaging the muscles in your legs and core. Holding the pose strengthens the muscles in your legs, including your thighs, calves, and ankles.",
+        "mistakes": "Avoid placing the foot too high on the inner thigh or too low on the knee joint. Aim to position the foot on the inner thigh or calf for stability.Maintain an upright posture and avoid leaning too far forward or backward, which can throw off your balance.",
+        "tips": "Begin in Mountain Pose (Tadasana) with your feet hip-width apart and distribute your weight evenly across both feet before transitioning into Tree Pose.Fix your gaze on a stationary point in front of you to help maintain balance and focus.",
+        "video": "tree_pose.mp4",   
+        "icon": "https://cdn1.iconfinder.com/data/icons/yoga-poses-2-2/256/Tree-Pose-yoga-256.png"
+    },
+    "8": {
+        "id": "8",
+        "name": "Cobra",
+        "sequence": "Balance Flow",
+        "difficulty": "1",
+        "benefits": "Cobra Pose helps strengthen the muscles along the spine, including the erector spinae and multifidus muscles. Practicing Cobra Pose regularly can help counteract the effects of sitting and slouching, promoting better posture.",
+        "mistakes": "Avoid straining the neck by keeping it in a neutral position. Don't tilt the head too far back or collapse it forward. Keep the buttocks relaxed rather than squeezing them tightly, which can strain the lower back.",
+        "tips": "Begin with a gentle backbend, lifting just a few inches off the ground, and gradually increase the height as your flexibility and strength improve.Place your hands slightly wider than shoulder-width apart to give yourself more stability and support.",
+        "video": "cobra_pose.mp4",   
+        "icon": "https://cdn2.iconfinder.com/data/icons/yoga-poses-line/104/Untitled-3-48-512.png"
+    },
+    "9": {
+        "id": "9",
+        "name": "Chair",
+        "sequence": "Balance Flow",
+        "difficulty": "1",
+        "benefits": "Chair Pose primarily targets the quadriceps, hamstrings, and glutes, helping to build strength and endurance in the lower body. Balancing in Chair Pose requires engagement of the core muscles and promotes stability and balance.",
+        "mistakes": "Avoid rounding the upper back and collapsing the chest forward. Keep the chest lifted and the shoulders rolled back to maintain an open heart. Keep your knees in line with your ankles and avoid allowing them to extend past your toes, which can strain the knees.",
+        "tips": "Begin in Mountain Pose (Tadasana) with your feet hip-width apart and parallel to each other before moving into Chair Pose. Activate your abdominal muscles by drawing the lower belly in and up. This will help support your lower back and stabilize your torso.",
+        "video": "chair_pose.mp4",   
+        "icon": "https://cdn1.iconfinder.com/data/icons/yoga-poses-1-2/256/Chair-pose-yoga-256.png"
+    }
 }
 
 yoga_sequences = {
-    'Balance Flow Sequence': ['Chair', 'Cobra', 'Downward Dog', 'Tree', 'Warrior III'],
+    'Balance Flow Sequence': ['Chair', 'Cobra', 'Downward Dog', 'Tree'],
     'Warrior Sequence': ['Mountain', 'Warrior I', 'Humble Warrior', 'Warrior II', 'Reverse Warrior', 'Warrior III']
 }
 
