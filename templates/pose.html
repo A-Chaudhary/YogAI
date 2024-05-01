@@ -16,10 +16,11 @@
     </style>
 </head>
 <body data-pose-name="{{ pose_name }}">
-    <h1 style="text-align:center;">{{ pose_name }}</h1>
+    <h1 class="display-2" style="text-align:center;">{{ pose_name }}</h1>
     <video id="video" width="640" height="480" autoplay style="display:none;"></video>
     <canvas id="canvas" width="640" height="480"></canvas>
-    <div id="timer" class="fs-2 accent fw-bold">10</div>
+    <div id="timer" class="fs-2 accent fw-bold">7</div>
+    <p style="text-align:center;">Score: <span id="score">0</span></p>
     <form id="nextPoseForm" action="/next_pose" method="post" style="display:none;">
         <input type="hidden" name="score" id="scoreInput">
         <button type="submit">Next Pose</button>
@@ -27,5 +28,28 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
     <script src="{{ url_for('static', filename='quiz.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            init(); // Ensure this is called to start the camera and PoseNet
+        });
+
+        let countdown = 7;
+        const timerElement = document.getElementById('timer');
+
+        function updateTimer() {
+            timerElement.textContent = countdown;
+            if (countdown === 0) {
+                var score = document.getElementById('score');
+                score.innerHTML = Math.random() * 100
+                document.getElementById('scoreInput').value = document.getElementById('score').textContent;
+                document.getElementById('nextPoseForm').submit();
+            } else {
+                countdown--;
+                setTimeout(updateTimer, 1000);
+            }
+        }
+
+        setTimeout(updateTimer, 1000); // Start the timer when the page loads
+    </script>
 </body>
 {% endblock %}

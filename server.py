@@ -14,7 +14,7 @@ sequences = ["Warrior", "Core Strengthener"]
 data = {
     "0" : {
         "id": "0",
-        "name": "Downward Dog Pose",
+        "name": "Downward Dog",
         "sequence": "",
         "difficulty": "1",
         "benefits": "Activates shoulders, arms, and wrists for improved strength. Stretches hamstrings, calves, and foot arches, enhancing flexibility.",
@@ -25,18 +25,7 @@ data = {
     },
     "1" : {
         "id": "1",
-        "name": "Lizard Pose",
-        "sequence": "",
-        "difficulty": "2",
-        "benefits": "Ideal for those who sit frequently, offering a deep stretch to alleviate tightness. Targets and fortifies inner thigh muscles, enhancing leg strength.",
-        "mistakes": "Ensure the knee doesn’t collapse inward to avoid knee stress. Maintain level hips to prevent lower back and hip strain",
-        "tips": "Activate your core to support the spine and enhance balance. Utilize blocks for hand or forearm support for easier reach.",
-        "video": "jXk5dquBT6w",
-        "icon": "https://cdn1.iconfinder.com/data/icons/yoga-poses-1-2/256/Lizard-Pose-yoga-512.png"
-    },
-    "2" : {
-        "id": "2",
-        "name": "Mountain Pose",
+        "name": "Mountain",
         "sequence": "Warrior",
         "difficulty": "3",
         "benefits": "Mountain Pose helps in aligning the spine, shoulders, and hips, which improves overall posture. Practicing Tadasana increases body awareness, helping you identify misalignments and correct them.",
@@ -45,8 +34,8 @@ data = {
         "video": "Kv4C8CV8HjM",
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-essentials/48/Paul-25-256.png"
     },
-    "3" : {
-        "id": "3",
+    "2" : {
+        "id": "2",
         "name": "Warrior I",
         "sequence": "Warrior",
         "difficulty": "3",
@@ -56,9 +45,9 @@ data = {
         "video": "NytDpa2r34g",
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-poses-2/48/Paul-06-256.png"
     },
-    "4" : {
-        "id": "4",
-        "name": "Humble Warrior Pose",
+    "3" : {
+        "id": "3",
+        "name": "Humble Warrior",
         "sequence": "Warrior",
         "difficulty": "3",
         "benefits": "Humble Warrior provides a deep stretch to the shoulders, chest, and upper back, helping to release tension in these areas. The pose stretches the hip flexors, groin, and quadriceps, promoting flexibility and mobility in the hips.elping to improve overall lower body strength. Practicing this pose challenges your balance, which helps to improve coordination and stability.",
@@ -67,8 +56,8 @@ data = {
         "video": "LwCWbc1y9sQ",
         "icon": "https://static.thenounproject.com/png/1303208-200.png"
     },
-    "5" : {
-        "id": "5",
+    "4" : {
+        "id": "4",
         "name": "Warrior II",
         "sequence": "Warrior",
         "difficulty": "3",
@@ -78,8 +67,8 @@ data = {
         "video": "Mn6RSIRCV3w",
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-essentials/48/Paul-07-512.png"
     },
-    "6" : {
-        "id": "6",
+    "5" : {
+        "id": "5",
         "name": "Reverse Warrior",
         "sequence": "Warrior",
         "difficulty": "3",
@@ -89,8 +78,8 @@ data = {
         "video": "xpKG_OrBWLI",
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-poses-2-2/256/Reverse-Warrior-Pose-yoga-256.png"
     },
-    "7" : {
-        "id": "7",
+    "6" : {
+        "id": "6",
         "name": "Warrior III",
         "sequence": "Warrior",
         "difficulty": "3",
@@ -100,48 +89,15 @@ data = {
         "video": "uEc5hrgIYx4",
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-essentials/48/Paul-09-256.png"
     },
-    "8" : {
-        "id": "8",
-        "name": "Plank Pose",
-        "sequence": "Core Strengthener",
-        "difficulty": "2",
-        "benefits": "Plank pose primarily targets the muscles of the core, including the rectus abdominis, transverse abdominis, obliques, and lower back muscles. It helps strengthen these muscles, leading to improved stability and posture. While the core muscles are the primary focus, plank pose also engages muscles throughout the entire body, including the shoulders, arms, chest, and legs, promoting overall strength and endurance.",
-        "mistakes": "Allowing the hips to sag toward the ground can put strain on the lower back and reduce the effectiveness of the pose. Keep the body in a straight line from head to heels by engaging the core muscles. Lifting the hips too high can create tension in the shoulders and limit engagement of the core muscles. Aim to maintain a neutral spine and avoid overarching or rounding the back.",
-        "tips": "Focus on actively engaging the muscles of the core throughout the entire pose. Imagine drawing the navel toward the spine to create stability and support for the entire body. Pay attention to the alignment of the body, keeping the shoulders stacked over the wrists and the heels reaching back behind you. Avoid any sagging or lifting in the hips.",
-        "video": "u6ZelKyUM6g",
-        "icon": "https://cdn1.iconfinder.com/data/icons/yoga-poses-2-2/256/Low-Plank-Pose-yoga-256.png"
-    },
-    "9" : {
-        "id": "9",
-        "name": "Boat Pose",
-        "sequence": "Core Strengthener",
-        "difficulty": "2",
-        "benefits": "Boat Pose primarily targets the muscles of the abdomen, including the rectus abdominis, transverse abdominis, and obliques, helping to strengthen and tone the core. Holding Boat Pose requires balance and stability, which engages the muscles of the core, hips, and lower back, promoting overall stability and coordination.",
-        "mistakes": "Allowing the spine to round or hunch forward can strain the lower back and reduce the effectiveness of the pose. Aim to keep the spine long and straight, with the chest lifted. Allowing the chest to collapse toward the thighs can disengage the core muscles and compromise balance. Keep the chest open and broad, lifting the sternum toward the ceiling.",
-        "tips": "Focus on actively engaging the muscles of the core throughout the entire pose. Imagine drawing the navel toward the spine to create stability and support for the entire body. Pay attention to the alignment of the spine, keeping it long and straight from the tailbone to the crown of the head. Avoid rounding or overarching the back.",
-        "video": "QVEINjrYUPU",
-        "icon": "https://cdn1.iconfinder.com/data/icons/yoga-poses-1-2/256/Half-Boat-Pose-yoga-256.png"
-    },
-    "10" : {
-        "id": "10",
-        "name": "Forearm Plank Pose",
-        "sequence": "Core Strengthener",
-        "difficulty": "2",
-        "benefits": "Forearm Plank primarily targets the muscles of the core, including the rectus abdominis, transverse abdominis, and obliques, helping to strengthen and tone the entire midsection. Holding Forearm Plank engages the muscles of the shoulders, arms, and upper back, helping to build strength and stability in the upper body.",
-        "mistakes": "Allowing the hips to sag toward the ground can put strain on the lower back and reduce the effectiveness of the pose. Keep the body in a straight line from head to heels by engaging the core muscles. Lifting the hips too high can create tension in the shoulders and limit engagement of the core muscles. Aim to maintain a neutral spine and avoid overarching or rounding the back.",
-        "tips": "Focus on actively engaging the muscles of the core throughout the entire pose. Imagine drawing the navel toward the spine to create stability and support for the entire body. Pay attention to the alignment of the body, keeping the shoulders stacked directly over the elbows and the heels reaching back behind you. Avoid any sagging or lifting in the hips.",
-        "video": "3QZlgJ40LfU",
-        "icon": "https://cdn4.iconfinder.com/data/icons/yoga-pose-outline/64/forearm-plank-yoga-pose-meditation-256.png"
-    },
 }
 
 yoga_sequences = {
-    'Sequence 1': ['Chair', 'Cobra', 'Downward Dog', 'Tree', 'Warrior III'],
-    'Sequence 2': ['Cobra', 'Plank', 'Seated Forward Bend', 'Triangle', 'Camel']
+    'Balance Flow Sequence': ['Chair', 'Cobra', 'Downward Dog', 'Tree', 'Warrior III'],
+    'Warrior Sequence': ['Mountain', 'Warrior I', 'Humble Warrior', 'Warrior II', 'Reverse Warrior', 'Warrior III']
 }
 
 quiz_score = 0
-num_poses = 11
+num_poses = len(data.keys())
 scores = []
 
 @app.route('/')
