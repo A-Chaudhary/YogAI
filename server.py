@@ -1,6 +1,10 @@
 from flask import Flask
 from flask import render_template
-from flask import Response, request, jsonify, session, redirect, url_for
+from flask import request, jsonify, session, redirect, url_for
+import base64
+import numpy as np
+import cv2
+import pose_estimation
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -132,66 +136,13 @@ data = {
 }
 
 yoga_sequences = {
-    'Sequence 1': ['Mountain', 'Downward Dog', 'Warrior I', 'Tree', 'Child'],
+    'Sequence 1': ['Chair', 'Cobra', 'Downward Dog', 'Tree', 'Warrior III'],
     'Sequence 2': ['Cobra', 'Plank', 'Seated Forward Bend', 'Triangle', 'Camel']
-}
-
-# Detailed keypoints for each pose
-pose_keypoints = {
-    'Mountain': {
-        'leftHip': {'x': 0.5, 'y': 0.6}, 'rightHip': {'x': 0.5, 'y': 0.6},
-        'leftKnee': {'x': 0.5, 'y': 0.75}, 'rightKnee': {'x': 0.5, 'y': 0.75},
-        'leftAnkle': {'x': 0.5, 'y': 0.9}, 'rightAnkle': {'x': 0.5, 'y': 0.9}
-    },
-    'Downward Dog': {
-        'leftHip': {'x': 0.4, 'y': 0.4}, 'rightHip': {'x': 0.6, 'y': 0.4},
-        'leftKnee': {'x': 0.4, 'y': 0.65}, 'rightKnee': {'x': 0.6, 'y': 0.65},
-        'leftAnkle': {'x': 0.35, 'y': 0.9}, 'rightAnkle': {'x': 0.65, 'y': 0.9}
-    },
-    'Warrior I': {
-        'leftHip': {'x': 0.4, 'y': 0.55}, 'rightHip': {'x': 0.55, 'y': 0.55},
-        'leftKnee': {'x': 0.3, 'y': 0.8}, 'rightKnee': {'x': 0.55, 'y': 0.8},
-        'leftAnkle': {'x': 0.25, 'y': 0.95}, 'rightAnkle': {'x': 0.55, 'y': 0.95}
-    },
-    'Tree': {
-        'leftHip': {'x': 0.5, 'y': 0.55}, 'rightHip': {'x': 0.55, 'y': 0.55},
-        'leftKnee': {'x': 0.6, 'y': 0.6}, 'rightKnee': {'x': 0.55, 'y': 0.75},
-        'leftAnkle': {'x': 0.5, 'y': 0.7}, 'rightAnkle': {'x': 0.55, 'y': 0.95}
-    },
-    'Child': {
-        'leftHip': {'x': 0.5, 'y': 0.7}, 'rightHip': {'x': 0.5, 'y': 0.7},
-        'leftKnee': {'x': 0.5, 'y': 0.85}, 'rightKnee': {'x': 0.5, 'y': 0.85},
-        'leftAnkle': {'x': 0.5, 'y': 0.95}, 'rightAnkle': {'x': 0.5, 'y': 0.95}
-    },
-    'Cobra': {
-        'leftHip': {'x': 0.5, 'y': 0.7}, 'rightHip': {'x': 0.5, 'y': 0.7},
-        'leftKnee': {'x': 0.5, 'y': 0.85}, 'rightKnee': {'x': 0.5, 'y': 0.85},
-        'leftAnkle': {'x': 0.45, 'y': 0.95}, 'rightAnkle': {'x': 0.55, 'y': 0.95}
-    },
-    'Plank': {
-        'leftHip': {'x': 0.5, 'y': 0.5}, 'rightHip': {'x': 0.5, 'y': 0.5},
-        'leftKnee': {'x': 0.5, 'y': 0.75}, 'rightKnee': {'x': 0.5, 'y': 0.75},
-        'leftAnkle': {'x': 0.5, 'y': 0.95}, 'rightAnkle': {'x': 0.5, 'y': 0.95}
-    },
-    'Seated Forward Bend': {
-        'leftHip': {'x': 0.5, 'y': 0.5}, 'rightHip': {'x': 0.5, 'y': 0.5},
-        'leftKnee': {'x': 0.5, 'y': 0.6}, 'rightKnee': {'x': 0.5, 'y': 0.6},
-        'leftAnkle': {'x': 0.5, 'y': 0.75}, 'rightAnkle': {'x': 0.5, 'y': 0.75}
-    },
-    'Triangle': {
-        'leftHip': {'x': 0.4, 'y': 0.55}, 'rightHip': {'x': 0.6, 'y': 0.55},
-        'leftKnee': {'x': 0.4, 'y': 0.8}, 'rightKnee': {'x': 0.6, 'y': 0.8},
-        'leftAnkle': {'x': 0.4, 'y': 0.95}, 'rightAnkle': {'x': 0.6, 'y': 0.95}
-    },
-    'Camel': {
-        'leftHip': {'x': 0.5, 'y': 0.55}, 'rightHip': {'x': 0.5, 'y': 0.55},
-        'leftKnee': {'x': 0.5, 'y': 0.8}, 'rightKnee': {'x': 0.5, 'y': 0.8},
-        'leftAnkle': {'x': 0.45, 'y': 0.95}, 'rightAnkle': {'x': 0.55, 'y': 0.95}
-    }
 }
 
 quiz_score = 0
 num_poses = 11
+scores = []
 
 @app.route('/')
 def hello_world():
@@ -236,6 +187,8 @@ def learn(id=None):
 
 @app.route('/quiz')
 def index():
+    global scores
+    scores = []
     return render_template('quiz.html', sequences=yoga_sequences)
 
 @app.route('/start', methods=['POST'])
@@ -248,17 +201,32 @@ def start():
 @app.route('/pose')
 def pose():
     if 'sequence' not in session or session['current_pose_index'] >= len(session['sequence']):
-        return redirect(url_for('index'))
+        return redirect(url_for('quiz'))
     pose_name = session['sequence'][session['current_pose_index']]
-    keypoints = pose_keypoints[pose_name]
-    return render_template('pose.html', pose_name=pose_name, keypoints=keypoints)
+    return render_template('pose.html', pose_name=pose_name, timer_duration=10)
+
+@app.route('/save_image_frame', methods=['POST'])
+def save_image_frame():
+    image_data = request.json.get('imageData')
+    img_bytes = base64.b64decode(image_data.split(",")[1])
+    image_array = np.frombuffer(img_bytes, dtype=np.uint8) # Decode the base64 data
+    image = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
+
+    pose_dict = pose_estimation.run('movenet_thunder', None, 'classifier', 'labels.txt', image)
+    pose_name = session['sequence'][session['current_pose_index']]
+    if isinstance(pose_dict, dict):
+        pose_score = pose_dict.get(pose_name)
+        if pose_score is not None:
+            scores.append(float(pose_score) * 100)
+    else:
+        scores.append(0)
+
+    #with open("image.png", "wb") as image_file:
+        #image_file.write(img_bytes)
+    return jsonify({'status': 'success', 'image_frame_received': True}), 200
 
 @app.route('/next_pose', methods=['POST'])
 def next_pose():
-    score = float(request.form.get('score'))
-    if 'scores' not in session:
-        session['scores'] = []
-    session['scores'].append(score)
     session['current_pose_index'] += 1
     if session['current_pose_index'] >= len(session['sequence']):
         return redirect(url_for('results'))
@@ -267,14 +235,7 @@ def next_pose():
 @app.route('/results')
 def results():
     global quiz_score
-    if 'scores' not in session:
-        quiz_score = 0
-    else:
-        quiz_score = round(sum(session['scores']) / len(session['scores']), 2)
-
-    from random import random
-
-    scores = session['scores']
+    quiz_score = round(sum(scores) / len(scores), 2)
 
 
     return render_template('results.html', overall_score=quiz_score, scores=scores)
