@@ -231,10 +231,11 @@ def next_pose():
 def results():
     global quiz_score
     global scores
+    time.sleep(2)
     # print('results', scores)
     quiz_score = round(sum(scores) / len(scores), 2)
 
-    time.sleep(1)
+    
     return render_template('results.html', overall_score=quiz_score, scores=scores)
 
 if __name__ == '__main__':
