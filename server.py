@@ -236,7 +236,7 @@ def results():
     quiz_score = round(sum(scores) / len(scores), 2)
 
     
-    return render_template('results.html', overall_score=quiz_score, scores=scores)
+    return render_template('results.html', overall_score=quiz_score, scores=scores, sequence = session['sequence'])
 
 if __name__ == '__main__':
     app.run(debug = True)

@@ -17,8 +17,9 @@ $(document).ready(() => {
     console.log(overallScore);
 
     // Define categorical labels
-    const labels = [...Array(data.length).keys()].map(i => `pose ${i + 1}`);
-    labels.push("Overall Score");
+    // const labels = [...Array(data.length).keys()].map(i => `pose ${i + 1}`);
+    // labels.push("Overall Score");
+    const labels = [...sequence, "Overall Score"];
 
     // Declare the x (horizontal position) scale.
     const x = d3.scaleBand()
