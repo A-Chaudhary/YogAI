@@ -41,7 +41,7 @@ data = {
         "sequence": "Warrior",
         "difficulty": "3",
         "benefits": "Warrior I strengthens the legs, particularly the quadriceps, hamstrings, and calves, helping to improve overall lower body strength. Practicing this pose challenges your balance, which helps to improve coordination and stability.",
-        "mistakes": "Allowing the front knee to collapse inward can strain the knee joint. Ensure that the knee is stacked directly over the ankle. Placing the back foot at an awkward angle or not grounding it properly can lead to instability. The back foot should be turned out at a 45-degree angle and firmly rooted into the ground.",
+        "mistakes": "Ensure that the knee is stacked directly over the ankle. Placing the back foot at an awkward angle or not grounding it properly can lead to instability. The back foot should be turned out at a 45-degree angle and firmly rooted into the ground.",
         "tips": "Pay attention to the alignment of the feet, knees, hips, and shoulders. Maintain a strong foundation with proper alignment to maximize the benefits of the pose. Activate the muscles of the legs by pressing firmly into the ground with both feet. Engage the quadriceps and lift the kneecaps to support the stability of the pose.",
         "video": "warrior_1.mp4",
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-poses-2/48/Paul-06-256.png"
@@ -53,7 +53,7 @@ data = {
         "difficulty": "3",
         "benefits": "Humble Warrior provides a deep stretch to the shoulders, chest, and upper back, helping to release tension in these areas. The pose stretches the hip flexors, groin, and quadriceps, promoting flexibility and mobility in the hips. Practicing this pose challenges your balance, which helps to improve coordination and stability.",
         "mistakes": "Allowing the chest to collapse toward the thigh instead of maintaining an open chest can compromise the integrity of the pose and limit the stretch. Rounding the upper back instead of keeping it flat can strain the spine. Aim to keep the spine long and neutral.",
-        "tips": "Pay attention to the alignment of the feet, knees, hips, and shoulders. Keep the front knee stacked directly over the ankle and the hips squared toward the front of the mat. Activate the muscles of the legs by pressing firmly into the ground with both feet. Engage the quadriceps and glutes to support the stability of the pose.",
+        "tips": "Keep the front knee stacked directly over the ankle and the hips squared toward the front of the mat. Activate the muscles of the legs by pressing firmly into the ground with both feet. Engage the quadriceps and glutes to support the stability of the pose.",
         "video": "humble_warrior.mp4",
         "icon": "https://static.thenounproject.com/png/1303208-200.png"
     },
@@ -63,8 +63,8 @@ data = {
         "sequence": "Warrior",
         "difficulty": "3",
         "benefits": "Warrior II strengthens the legs, including the quadriceps, hamstrings, and calves, which promotes stability and balance. The pose opens up the hips, stretching the groin and hip flexors, which can alleviate tightness and improve flexibility.",
-        "mistakes": "Allowing the front knee to collapse inward (toward the midline of the body) can strain the knee joint. Ensure the knee is stacked directly over the ankle. Incorrect placement of the back foot, such as pointing it too far forward or inward, can compromise stability and alignment. Aim to keep the back foot parallel to the short edge of the mat.",
-        "tips": "Ensure the front heel is aligned with the arch of the back foot. This alignment helps maintain stability and supports proper hip positioning. Activate the core muscles by drawing the navel gently toward the spine. This action provides support to the lower back and helps maintain stability in the pose.",
+        "mistakes": "Allowing the front knee to collapse inward (toward the midline of the body) can strain the knee joint. Ensure the knee is stacked directly over the ankle. Incorrect placement of the back foot, such as pointing it too far forward or inward, can compromise stability and alignment.",
+        "tips": "Ensure the front heel is aligned with the arch of the back foot. This alignment helps maintain stability and supports proper hip positioning. Activate the core muscles by drawing the navel gently toward the spine.",
         "video": "warrior_2.mp4",
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-essentials/48/Paul-07-512.png"
     },
@@ -75,7 +75,7 @@ data = {
         "difficulty": "3",
         "benefits": "Reverse Warrior stretches the side body, including the intercostal muscles, obliques, and latissimus dorsi, promoting increased flexibility and range of motion. The pose opens up the hips and groin, providing relief from tightness and improving hip mobility.",
         "mistakes": "Allowing the chest to collapse toward the thigh instead of maintaining an open chest can limit the stretch and compromise alignment. Excessively arching the lower back can strain the lumbar spine. Engage the core muscles and lengthen the tailbone toward the ground to maintain a neutral spine.",
-        "tips": "Pay attention to the alignment of the feet, knees, hips, shoulders, and arms. Maintain a strong foundation with proper alignment to maximize the benefits of the pose. Activate the muscles of the legs by pressing firmly into the ground with both feet. Engage the quadriceps and inner thighs to support the stability of the pose.",
+        "tips": "Pay attention to the alignment of the feet, knees, hips, shoulders, and arms. Activate the muscles of the legs by pressing firmly into the ground with both feet. Engage the quadriceps and inner thighs to support the stability of the pose.",
         "video": "reverse_warrior.mp4",
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-poses-2-2/256/Reverse-Warrior-Pose-yoga-256.png"
     },
@@ -85,7 +85,7 @@ data = {
         "sequence": "Warrior",
         "difficulty": "3",
         "benefits": "Warrior III strengthens the muscles of the standing leg, including the quadriceps, hamstrings, and calves, as well as the core muscles, including the abdominals and lower back. Holding the pose challenges your balance and stability, helping to improve proprioception (awareness of body position in space) and coordination.",
-        "mistakes": "Allowing the chest to collapse toward the ground can disrupt the alignment of the spine and compromise balance. Aim to keep the chest lifted and the spine long. Excessively arching the lower back can strain the lumbar spine. Engage the core muscles and lengthen the tailbone toward the extended heel to maintain a neutral spine.",
+        "mistakes": "Allowing the chest to collapse toward the ground can disrupt the alignment of the spine and compromise balance. Excessively arching the lower back can strain the lumbar spine. Engage the core muscles and lengthen the tailbone toward the extended heel to maintain a neutral spine.",
         "tips": "Place your hands on blocks or a chair for added support if you're working on building strength and stability in the pose. Activate the muscles of the core by drawing the navel gently toward the spine. This action helps stabilize the torso and maintain balance.",
         "video": "warrior_3.mp4",
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-essentials/48/Paul-09-256.png"
