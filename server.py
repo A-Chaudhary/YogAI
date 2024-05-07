@@ -51,7 +51,7 @@ data = {
         "name": "Humble Warrior",
         "sequence": "Warrior",
         "difficulty": "3",
-        "benefits": "Humble Warrior provides a deep stretch to the shoulders, chest, and upper back, helping to release tension in these areas. The pose stretches the hip flexors, groin, and quadriceps, promoting flexibility and mobility in the hips.elping to improve overall lower body strength. Practicing this pose challenges your balance, which helps to improve coordination and stability.",
+        "benefits": "Humble Warrior provides a deep stretch to the shoulders, chest, and upper back, helping to release tension in these areas. The pose stretches the hip flexors, groin, and quadriceps, promoting flexibility and mobility in the hips. Practicing this pose challenges your balance, which helps to improve coordination and stability.",
         "mistakes": "Allowing the chest to collapse toward the thigh instead of maintaining an open chest can compromise the integrity of the pose and limit the stretch. Rounding the upper back instead of keeping it flat can strain the spine. Aim to keep the spine long and neutral.",
         "tips": "Pay attention to the alignment of the feet, knees, hips, and shoulders. Keep the front knee stacked directly over the ankle and the hips squared toward the front of the mat. Activate the muscles of the legs by pressing firmly into the ground with both feet. Engage the quadriceps and glutes to support the stability of the pose.",
         "video": "humble_warrior.mp4",
@@ -109,7 +109,7 @@ data = {
         "difficulty": "1",
         "benefits": "Cobra Pose helps strengthen the muscles along the spine, including the erector spinae and multifidus muscles. Practicing Cobra Pose regularly can help counteract the effects of sitting and slouching, promoting better posture.",
         "mistakes": "Avoid straining the neck by keeping it in a neutral position. Don't tilt the head too far back or collapse it forward. Keep the buttocks relaxed rather than squeezing them tightly, which can strain the lower back.",
-        "tips": "Begin with a gentle backbend, lifting just a few inches off the ground, and gradually increase the height as your flexibility and strength improve.Place your hands slightly wider than shoulder-width apart to give yourself more stability and support.",
+        "tips": "Begin with a gentle backbend, lifting just a few inches off the ground, and gradually increase the height as your flexibility and strength improve.  Place your hands slightly wider than shoulder-width apart to give yourself more stability and support.",
         "video": "cobra_pose.mp4",   
         "icon": "https://cdn2.iconfinder.com/data/icons/yoga-poses-line/104/Untitled-3-48-512.png"
     },
