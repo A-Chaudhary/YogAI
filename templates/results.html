@@ -5,6 +5,7 @@
 <script>
     let scores = {{scores}};
     let overall_score = {{overall_score}};
+    let sequence = {{sequence | safe}};
 </script>
 <script src="{{ url_for('static', filename = 'results.js') }}"></script>
 <div class="container results-home">

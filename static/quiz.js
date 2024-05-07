@@ -87,7 +87,9 @@ function drawSkeleton(keypoints, ctx, minConfidence) {
         ['leftHip', 'leftKnee'], ['leftKnee', 'leftAnkle'],
         ['rightHip', 'rightKnee'], ['rightKnee', 'rightAnkle'],
         ['leftHip', 'rightHip'], ['leftShoulder', 'rightShoulder'],
-        ['leftElbow', 'leftWrist'], ['rightElbow', 'rightWrist']
+        ['leftElbow', 'leftWrist'], ['rightElbow', 'rightWrist'],
+        ['leftShoulder', 'leftHip'], ['rightShoulder', 'rightHip'],
+        ['leftShoulder', 'leftElbow'], ['rightShoulder', 'rightHip']
     ];
     connectedParts.forEach(([start, end]) => {
         const partA = keypoints.find(k => k.part === start);
