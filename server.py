@@ -109,7 +109,7 @@ data = {
         "difficulty": "1",
         "benefits": "Cobra Pose helps strengthen the muscles along the spine, including the erector spinae and multifidus muscles. Practicing Cobra Pose regularly can help counteract the effects of sitting and slouching, promoting better posture.",
         "mistakes": "Avoid straining the neck by keeping it in a neutral position. Don't tilt the head too far back or collapse it forward. Keep the buttocks relaxed rather than squeezing them tightly, which can strain the lower back.",
-        "tips": "Begin with a gentle backbend, lifting just a few inches off the ground, and gradually increase the height as your flexibility and strength improve.  Place your hands slightly wider than shoulder-width apart to give yourself more stability and support.",
+        "tips": "Begin with a gentle backbend, lifting just a few inches off the ground, and gradually increase the height as your flexibility and strength improve. Place your hands slightly wider than shoulder-width apart to give yourself more stability and support.",
         "video": "cobra_pose.mp4",   
         "icon": "https://cdn2.iconfinder.com/data/icons/yoga-poses-line/104/Untitled-3-48-512.png"
     },
