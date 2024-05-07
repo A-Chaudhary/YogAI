@@ -97,8 +97,8 @@ data = {
         "sequence": "Balance Flow",
         "difficulty": "1",
         "benefits": "Tree Pose helps improve your balance and stability by engaging the muscles in your legs and core. Holding the pose strengthens the muscles in your legs, including your thighs, calves, and ankles.",
-        "mistakes": "Avoid placing the foot too high on the inner thigh or too low on the knee joint. Aim to position the foot on the inner thigh or calf for stability.Maintain an upright posture and avoid leaning too far forward or backward, which can throw off your balance.",
-        "tips": "Begin in Mountain Pose (Tadasana) with your feet hip-width apart and distribute your weight evenly across both feet before transitioning into Tree Pose.Fix your gaze on a stationary point in front of you to help maintain balance and focus.",
+        "mistakes": "Avoid placing the foot too high on the inner thigh or too low on the knee joint. Aim to position the foot on the inner thigh or calf for stability. Maintain an upright posture and avoid leaning too far forward or backward, which can throw off your balance.",
+        "tips": "Begin in Mountain Pose (Tadasana) with your feet hip-width apart and distribute your weight evenly across both feet before transitioning into Tree Pose. Fix your gaze on a stationary point in front of you to help maintain balance and focus.",
         "video": "tree_pose.mp4",   
         "icon": "https://cdn1.iconfinder.com/data/icons/yoga-poses-2-2/256/Tree-Pose-yoga-256.png"
     },
